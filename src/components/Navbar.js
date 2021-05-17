@@ -6,7 +6,7 @@ const Navbar = () => {
   return <nav className="navbar">
     <div className="nav-center">
       <div className="nav-header">
-        <img sec={logo} alt="logo" />
+        <img src={logo} alt="logo" />
         <button type="button" className="toggle-btn">
           <FaAlignRight />
         </button>
