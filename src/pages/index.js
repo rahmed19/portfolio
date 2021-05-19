@@ -40,6 +40,24 @@ export const query = graphql`
         }
       }
     }
+    allStrapiBlogs(sort: {fields: date, order: DESC}, limit: 3) {
+      nodes {
+        slug
+        content
+        date(formatString: "MMMM Do, YYYY")
+        description
+        title
+        id
+        category
+        image {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
   }
 `
 
