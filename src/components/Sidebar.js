@@ -6,12 +6,12 @@ import { Link } from "gatsby"
 const Sidebar = ({ isOpen, toggleSidebar }) => {
 
   return <aside className={`sidebar ${isOpen ? "show-sidebar" : ''}`}>
-    <button className="close-btn">
+    <button className="close-btn" onClick={() => toggleSidebar()}>
       <FaTimes />
     </button>
     <div className="side-container">
-      <Links styleClass="sidebar-links" />
-      <SocialLinks styleClass="sidebase-icons" />
+      <Links styleClass={`${isOpen ? "sidebar-links" : ''}`} />
+      <SocialLinks styleClass={`${isOpen ? "sidebar-icons" : ''}`} />
     </div>
   </aside>
 }
