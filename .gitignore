@@ -69,4 +69,4 @@ yarn-error.log
 .yarn-integrity
 .env
 
-/src/pages/contact.js
+src/pages/contact.js
