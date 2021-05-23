@@ -9,7 +9,7 @@ const Contact = () => {
 
   function sendEmail(e) {
     e.preventDefault()
-
+      //test
       .then((result) => {
         console.log(result.text, result.status);
         document.getElementById("name").disabled = true
