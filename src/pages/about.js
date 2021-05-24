@@ -9,7 +9,7 @@ const About = ({ data: { allStrapiAbout: { nodes } } }) => {
   return <Layout>
     <section className="about-page">
       <div className="section-center about-center">
-        <Image fluid={image.childImageSharp.fluid} className="about-img" />
+        <Image fixed={image.childImageSharp.fixed} className="about-img" />
         <article className="about-text">
           <Title title={title} />
           <p>{info}</p>
@@ -37,8 +37,8 @@ export const query = graphql`
         }
         image {
       childImageSharp {
-      fluid {
-      ...GatsbyImageSharpFluid
+      fixed {
+      ...GatsbyImageSharpFixed
     }
           }
         }

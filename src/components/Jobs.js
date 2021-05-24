@@ -28,7 +28,7 @@ const Jobs = () => {
   const [value, setValue] = useState(0)
   const { company, position, date, desc } = jobs[value]
 
-  return <section className="sections jobs">
+  return <section className="section jobs">
     <Title title="experience" />
     <div className="jobs-center">
       <div className="btn-container">

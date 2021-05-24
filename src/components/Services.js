@@ -7,12 +7,12 @@ const Services = () => {
     <div className="section-center services-center">
       {services.map((service) => {
         const { id, icon, title, text } = service
-        return <artcile key={id} className="service">
+        return <article key={id} className="service">
           {icon}
           <h4>{title}</h4>
           <div className="underline" />
           <p>{text}</p>
-        </artcile>
+        </article>
       })}
     </div>
   </section>
