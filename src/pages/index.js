@@ -45,7 +45,7 @@ export const query = graphql`
         }
       }
     }
-    allStrapiBlogs(sort: {fields: date, order: DESC}, limit: 3) {
+    allStrapiBlogs(sort: {fields: date, order: ASC}, limit: 3) {
       nodes {
         slug
         content

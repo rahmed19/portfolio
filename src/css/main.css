@@ -1006,7 +1006,8 @@ Blog Template
 }
 
 .blog-template h1,
-.blog-template h2 {
+.blog-template h2,
+.blog-template h5 {
   text-align: center;
 }
 .blog-template ul {
@@ -1037,7 +1038,10 @@ Blog Template
   border-radius: var(--radius);
 }
 .blog-template img {
-  width: 100%;
-  height: 100%;
-  margin: 1rem 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  height: 70%;
+
 }
