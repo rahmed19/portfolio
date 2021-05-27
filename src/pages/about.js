@@ -14,8 +14,18 @@ const About = ({ data: { allStrapiAbout: { nodes } } }) => {
           <Title title={title} />
           <p>{info}</p>
           <div className="about-stack">
-            {stack.map((item) => {
-              return <span key={item.id} >{item.title}</span>
+            {stack.slice(0, 19).map((item) => {
+              return (
+                <span key={item.id} >{item.title}</span>
+              )
+            })}
+          </div>
+
+          <div className="about-stack">
+            {stack.slice(19, 27).map((item) => {
+              return (
+                <span key={item.id} >{item.title}</span>
+              )
             })}
           </div>
         </article>
