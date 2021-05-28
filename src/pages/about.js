@@ -3,6 +3,7 @@ import Layout from "../components/Layout"
 import { graphql } from "gatsby"
 import Title from "../components/Title"
 import Image from "gatsby-image"
+import ReactMarkdown from "react-markdown"
 
 const About = ({ data: { allStrapiAbout: { nodes } } }) => {
   const { info, stack, title, image } = nodes[0]
@@ -12,17 +13,23 @@ const About = ({ data: { allStrapiAbout: { nodes } } }) => {
         <Image fixed={image.childImageSharp.fixed} className="about-img" />
         <article className="about-text">
           <Title title={title} />
-          <p>{info}</p>
+          <ReactMarkdown source={info} />
+          {/* <p>{info2}</p> */}
+          <br />
+          <h4>Advanced Knowledge</h4>
+          <div className="underline" />
           <div className="about-stack">
-            {stack.slice(0, 19).map((item) => {
+            {stack.slice(0, 21).map((item) => {
               return (
                 <span key={item.id} >{item.title}</span>
               )
             })}
           </div>
-
+          <br /> <br />
+          <h4>Intermediate Knowledge</h4>
+          <div className="underline" />
           <div className="about-stack">
-            {stack.slice(19, 27).map((item) => {
+            {stack.slice(21, 30).map((item) => {
               return (
                 <span key={item.id} >{item.title}</span>
               )

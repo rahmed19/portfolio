@@ -930,7 +930,7 @@ About Page
   .about-center {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    align-items: center;
+    align-items: top;
     column-gap: 4rem;
   }
   .about-img {
