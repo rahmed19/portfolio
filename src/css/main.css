@@ -487,7 +487,7 @@ Services
 ===============
 */
 .service {
-  background: var(--clr-white);
+  background: var(--clr-grey-10);
   padding: 3rem 1.5rem;
   margin-bottom: 2rem;
   border-radius: var(--radius);
