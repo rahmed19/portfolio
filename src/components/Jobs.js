@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import Title from "./Title"
 import { FaAngleDoubleRight, FaSleigh } from "react-icons/fa"
 import { graphql, useStaticQuery } from "gatsby"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 
 const query = graphql`
   {
@@ -13,6 +13,7 @@ const query = graphql`
         date
         id
         position
+        category
         desc {
           id
           name
@@ -38,7 +39,7 @@ const Jobs = () => {
             key={item.strapiId}
             className={`job-btn ${index === value && 'active-btn'}`}
             onClick={() => setValue(index)}
-          >{item.company}</button>
+          >{item.category}</button>
         })}
       </div>
       <article className="job-info">
