@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import Title from "./Title"
-import { FaAngleDoubleRight } from "react-icons/fa"
+import { FaAngleDoubleRight, FaSleigh } from "react-icons/fa"
 import { graphql, useStaticQuery } from "gatsby"
 import { Link } from "gatsby"
 
@@ -26,10 +26,11 @@ const Jobs = () => {
   const data = useStaticQuery(query)
   const { allStrapiJobs: { nodes: jobs } } = data
   const [value, setValue] = useState(0)
+  const [displayValue, setDisplayValue] = useState(false)
   const { company, position, date, desc } = jobs[value]
 
   return <section className="section jobs">
-    <Title title="experience" />
+    {displayValue === false ? <Title title="experience" /> : <Title title="education" />}
     <div className="jobs-center">
       <div className="btn-container">
         {jobs.map((item, index) => {
@@ -54,9 +55,9 @@ const Jobs = () => {
         }
       </article>
     </div>
-    <Link to="/about" className="btn center-btn">
-      more info
-    </Link>
+    <button className="btn center-btn" onClick={() => setDisplayValue((prev) => (!prev))}>
+      {displayValue === false ? "Show Education" : "Show Experience"}
+    </button>
   </section>
 }
 
