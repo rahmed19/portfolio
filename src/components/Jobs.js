@@ -23,7 +23,7 @@ const query = graphql`
   }
 `
 
-const Jobs = () => {
+const Jobs = ({ showLink }) => {
   const data = useStaticQuery(query)
   const { allStrapiJobs: { nodes: jobs } } = data
   const [value, setValue] = useState(0)
@@ -45,7 +45,15 @@ const Jobs = () => {
         <h3>{position}</h3>
         <h4>{company}</h4>
         <p className="job-date">{date}</p>
-        {
+
+        {showLink ?
+          desc.slice(0, 7).map((item) => {
+            return <div key={item.id} className="job-desc">
+              <FaAngleDoubleRight className="job-icon" />
+              <p>{item.name}</p>
+            </div>
+          }) :
+          //Show all experiences
           desc.map((item) => {
             return <div key={item.id} className="job-desc">
               <FaAngleDoubleRight className="job-icon" />
@@ -53,11 +61,23 @@ const Jobs = () => {
             </div>
           })
         }
+
+        {/* Show All Experiences */}
+        {/* {
+          desc.map((item) => {
+            return <div key={item.id} className="job-desc">
+              {console.log("non sliced!")}
+              <FaAngleDoubleRight className="job-icon" />
+              <p>{item.name}</p>
+            </div>
+          })
+        } */}
+
       </article>
     </div>
-    <Link to="/about" className="btn center-btn">
-      more info
-    </Link>
+    {showLink && <Link to="/about" className="btn center-btn">
+      read more
+    </Link>}
   </section>
 }
 
