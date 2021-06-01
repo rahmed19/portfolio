@@ -39,7 +39,9 @@ const About = ({ data: { allStrapiAbout: { nodes } } }) => {
         </article>
       </div>
     </section>
-    <Jobs />
+    <div id="experience">
+      <Jobs />
+    </div>
   </Layout>
 }
 

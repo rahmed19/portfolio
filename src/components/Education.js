@@ -23,7 +23,7 @@ const query = graphql`
   }
 `
 
-const Jobs = ({ showLink }) => {
+const Education = ({ showLink }) => {
   const data = useStaticQuery(query)
   const { allStrapiJobs: { nodes: jobs } } = data
   const [value, setValue] = useState(0)
@@ -48,7 +48,7 @@ const Jobs = ({ showLink }) => {
 
         {showLink ?
           //Show 7 items from experiences
-          desc.slice(0, 10).map((item) => {
+          desc.slice(0, 7).map((item) => {
             return <div key={item.id} className="job-desc">
               <FaAngleDoubleRight className="job-icon" />
               <p>{item.name}</p>
@@ -65,10 +65,10 @@ const Jobs = ({ showLink }) => {
 
       </article>
     </div>
-    {showLink && <Link to="/about#experience" className="btn center-btn">
-      show all
+    {showLink && <Link to="/about" className="btn center-btn">
+      read more
     </Link>}
   </section>
 }
 
-export default Jobs
+export default Education
