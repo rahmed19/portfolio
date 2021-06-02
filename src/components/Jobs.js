@@ -1,8 +1,8 @@
 import React, { useState } from "react"
-import Title from "./Title"
 import { FaAngleDoubleRight, FaSleigh } from "react-icons/fa"
 import { graphql, useStaticQuery } from "gatsby"
 import { Link } from "gatsby"
+import Job2 from "./Job2"
 
 const query = graphql`
   {
@@ -27,55 +27,51 @@ const query = graphql`
 `
 
 const Jobs = ({ showLink }) => {
-  const data = useStaticQuery(query)
-  const { allStrapiJobs: { nodes: jobs } } = data
-  const [value, setValue] = useState(0)
-  const { company, company2, position, position2, date, date2, desc, desc2 } = jobs[value]
+    const data = useStaticQuery(query)
+    const { allStrapiJobs: { nodes: jobs } } = data
+    const [value, setValue] = useState(0)
+    const { company, company2, position, position2, date, date2, desc, desc2 } = jobs[value]
 
-  return <section className="section jobs">
-    <Title title="experience" />
-    <div className="jobs-center">
-      <div className="btn-container">
-        {jobs.map((item, index) => {
-          return <button
-            key={item.strapiId}
-            className={`job-btn ${index === value && 'active-btn'}`}
-            onClick={() => setValue(index)}
-          >{item.category}</button>
-        })}
-      </div>
-      <article className="job-info">
-        <h3>{position}</h3>
-        <h4>{company}</h4>
-        <p className="job-date">{date}</p>
-
-        {showLink ?
-          //Show 7 items from experiences
-          desc.slice(0, 10).map((item) => {
-            return <div key={item.id} className="job-desc">
-              <FaAngleDoubleRight className="job-icon" />
-              <p>{item.name}</p>
+    return <section className="section jobs">
+        <div className="jobs-center">
+            <div className="btn-container">
+                {jobs.map((item, index) => {
+                    return <button
+                        key={item.strapiId}
+                        className={`job-btn ${index === value && 'active-btn'}`}
+                        onClick={() => setValue(index)}
+                    >{item.category}</button>
+                })}
             </div>
-          }) :
-          //Show all experiences
-          desc.map((item) => {
-            return <div key={item.id} className="job-desc">
-              <FaAngleDoubleRight className="job-icon" />
-              <p>{item.name}</p>
-            </div>
-          })
-        }
+            <article className="job-info">
+                <h3>{position}</h3>
+                <h4>{company}</h4>
+                <p className="job-date">{date}</p>
 
-        <h3>{position2}</h3>
-        <h4>{company2}</h4>
-        <p className="job-date">{date2}</p>
+                {showLink ?
+                    //Show 7 items from experiences
+                    desc.slice(0, 10).map((item) => {
+                        return <div key={item.id} className="job-desc">
+                            <FaAngleDoubleRight className="job-icon" />
+                            <p>{item.name}</p>
+                        </div>
+                    }) :
+                    //Show all experiences
+                    desc.map((item) => {
+                        return <div key={item.id} className="job-desc">
+                            <FaAngleDoubleRight className="job-icon" />
+                            <p>{item.name}</p>
+                        </div>
+                    })
+                }
 
-      </article>
-    </div>
-    {showLink && <Link to="/about#experience" className="btn center-btn">
-      show all
+            </article>
+            {showLink ? null : <Job2 value={value} />}
+        </div>
+        {showLink && <Link to="/about#experience" className="btn center-btn">
+            show all
     </Link>}
-  </section>
+    </section>
 }
 
 export default Jobs
