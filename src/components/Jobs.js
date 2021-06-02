@@ -10,9 +10,12 @@ const query = graphql`
       nodes {
         strapiId
         company
+        company2
         date
+        date2
         id
         position
+        position2
         category
         desc {
           id
@@ -27,7 +30,7 @@ const Jobs = ({ showLink }) => {
   const data = useStaticQuery(query)
   const { allStrapiJobs: { nodes: jobs } } = data
   const [value, setValue] = useState(0)
-  const { company, position, date, desc } = jobs[value]
+  const { company, company2, position, position2, date, date2, desc, desc2 } = jobs[value]
 
   return <section className="section jobs">
     <Title title="experience" />
@@ -38,7 +41,7 @@ const Jobs = ({ showLink }) => {
             key={item.strapiId}
             className={`job-btn ${index === value && 'active-btn'}`}
             onClick={() => setValue(index)}
-          >{item.company}</button>
+          >{item.category}</button>
         })}
       </div>
       <article className="job-info">
@@ -62,6 +65,10 @@ const Jobs = ({ showLink }) => {
             </div>
           })
         }
+
+        <h3>{position2}</h3>
+        <h4>{company2}</h4>
+        <p className="job-date">{date2}</p>
 
       </article>
     </div>
