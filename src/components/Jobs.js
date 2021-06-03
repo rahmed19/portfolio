@@ -3,6 +3,7 @@ import { FaAngleDoubleRight, FaSleigh } from "react-icons/fa"
 import { graphql, useStaticQuery } from "gatsby"
 import { Link } from "gatsby"
 import Job2 from "./Job2"
+import Title from "./Title"
 
 const query = graphql`
   {
@@ -30,9 +31,10 @@ const Jobs = ({ showLink }) => {
     const data = useStaticQuery(query)
     const { allStrapiJobs: { nodes: jobs } } = data
     const [value, setValue] = useState(0)
-    const { company, company2, position, position2, date, date2, desc, desc2 } = jobs[value]
+    const { company, position, date, desc } = jobs[value]
 
     return <section className="section jobs">
+        <Title title="Experience" />
         <div className="jobs-center">
             <div className="btn-container">
                 {jobs.map((item, index) => {
@@ -50,7 +52,7 @@ const Jobs = ({ showLink }) => {
 
                 {showLink ?
                     //Show 7 items from experiences
-                    desc.slice(0, 10).map((item) => {
+                    desc.slice(0, 6).map((item) => {
                         return <div key={item.id} className="job-desc">
                             <FaAngleDoubleRight className="job-icon" />
                             <p>{item.name}</p>
