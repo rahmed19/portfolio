@@ -6,18 +6,18 @@ import { Link } from "gatsby"
 
 const query = graphql`
   {
-    allStrapiJobs(sort: {fields: strapiId, order: DESC}) {
+    allStrapiEducations {
       nodes {
-        strapiId
-        company
-        date
-        id
-        position
         category
-        desc {
+        date
+        degree
+        education {
           id
           name
         }
+        strapiId
+        id
+        school
       }
     }
   }
@@ -25,37 +25,37 @@ const query = graphql`
 
 const Education = ({ showLink }) => {
   const data = useStaticQuery(query)
-  const { allStrapiJobs: { nodes: jobs } } = data
+  const { allStrapiEducations: { nodes: educations } } = data
   const [value, setValue] = useState(0)
-  const { company, position, date, desc } = jobs[value]
+  const { school, degree, date, education } = educations[value]
 
   return <section className="section jobs">
     <Title title="experience" />
     <div className="jobs-center">
       <div className="btn-container">
-        {jobs.map((item, index) => {
+        {educations.map((item, index) => {
           return <button
             key={item.strapiId}
             className={`job-btn ${index === value && 'active-btn'}`}
             onClick={() => setValue(index)}
-          >{item.company}</button>
+          >{item.category}</button>
         })}
       </div>
       <article className="job-info">
-        <h3>{position}</h3>
-        <h4>{company}</h4>
+        <h3>{school}</h3>
+        <h4>{degree}</h4>
         <p className="job-date">{date}</p>
 
         {showLink ?
           //Show 7 items from experiences
-          desc.slice(0, 7).map((item) => {
+          education.slice(0, 7).map((item) => {
             return <div key={item.id} className="job-desc">
               <FaAngleDoubleRight className="job-icon" />
               <p>{item.name}</p>
             </div>
           }) :
           //Show all experiences
-          desc.map((item) => {
+          education.map((item) => {
             return <div key={item.id} className="job-desc">
               <FaAngleDoubleRight className="job-icon" />
               <p>{item.name}</p>
