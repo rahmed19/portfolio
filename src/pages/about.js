@@ -17,7 +17,7 @@ const About = ({ data: { allStrapiAbout: { nodes } } }) => {
         <article className="about-text">
           <Title title={title} />
           <ReactMarkdown source={info} />
-          {/* <p>{info2}</p> */}
+
           <br />
           <h4>Advanced Knowledge</h4>
           <div className="underline" />
@@ -32,7 +32,7 @@ const About = ({ data: { allStrapiAbout: { nodes } } }) => {
           <h4>Intermediate Knowledge</h4>
           <div className="underline" />
           <div className="about-stack">
-            {stack.slice(24, 33).map((item) => {
+            {stack.slice(24, 34).map((item) => {
               return (
                 <span key={item.id} >{item.title}</span>
               )
@@ -61,7 +61,7 @@ export const query = graphql`
         }
         image {
       childImageSharp {
-      fixed {
+        fixed(width: 330) {
       ...GatsbyImageSharpFixed
     }
           }

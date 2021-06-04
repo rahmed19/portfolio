@@ -48,7 +48,7 @@ const Education = ({ showLink }) => {
 
         {showLink ?
           //Show 7 items from experiences
-          education.slice(0, 7).map((item) => {
+          education.slice(0, 6).map((item) => {
             return <div key={item.id} className="job-desc">
               <FaAngleDoubleRight className="job-icon" />
               <p>{item.name}</p>
@@ -66,7 +66,7 @@ const Education = ({ showLink }) => {
       </article>
     </div>
     {showLink && <Link to="/about" className="btn center-btn">
-      read more
+      show all
     </Link>}
   </section>
 }
