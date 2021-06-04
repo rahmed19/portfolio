@@ -3,8 +3,10 @@ import Layout from "../components/Layout"
 import { graphql } from "gatsby"
 import Title from "../components/Title"
 import Jobs from "../components/Jobs"
+import Education from "../components/Education"
 import Image from "gatsby-image"
 import ReactMarkdown from "react-markdown"
+
 
 const About = ({ data: { allStrapiAbout: { nodes } } }) => {
   const { info, stack, title, image } = nodes[0]
@@ -20,7 +22,7 @@ const About = ({ data: { allStrapiAbout: { nodes } } }) => {
           <h4>Advanced Knowledge</h4>
           <div className="underline" />
           <div className="about-stack">
-            {stack.slice(0, 21).map((item) => {
+            {stack.slice(0, 24).map((item) => {
               return (
                 <span key={item.id} >{item.title}</span>
               )
@@ -30,7 +32,7 @@ const About = ({ data: { allStrapiAbout: { nodes } } }) => {
           <h4>Intermediate Knowledge</h4>
           <div className="underline" />
           <div className="about-stack">
-            {stack.slice(21, 30).map((item) => {
+            {stack.slice(24, 33).map((item) => {
               return (
                 <span key={item.id} >{item.title}</span>
               )
@@ -41,6 +43,7 @@ const About = ({ data: { allStrapiAbout: { nodes } } }) => {
     </section>
     <div id="experience">
       <Jobs />
+      <Education />
     </div>
   </Layout>
 }

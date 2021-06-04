@@ -6,7 +6,7 @@ import { Link } from "gatsby"
 
 const query = graphql`
   {
-    allStrapiEducations {
+    allStrapiEducations(sort: {fields: strapiId, order: DESC}) {
       nodes {
         category
         date
@@ -29,8 +29,8 @@ const Education = ({ showLink }) => {
   const [value, setValue] = useState(0)
   const { school, degree, date, education } = educations[value]
 
-  return <section className="section jobs">
-    <Title title="experience" />
+  return <section className="section jobs bg-grey">
+    <Title title="Education" />
     <div className="jobs-center">
       <div className="btn-container">
         {educations.map((item, index) => {
@@ -38,7 +38,7 @@ const Education = ({ showLink }) => {
             key={item.strapiId}
             className={`job-btn ${index === value && 'active-btn'}`}
             onClick={() => setValue(index)}
-          >{item.category}</button>
+          >{item.school}</button>
         })}
       </div>
       <article className="job-info">

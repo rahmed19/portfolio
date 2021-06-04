@@ -6,6 +6,7 @@ import Services from "../components/Services"
 import Jobs from "../components/Jobs"
 import Projects from "../components/Projects"
 import Blogs from "../components/Blogs"
+import Education from "../components/Education"
 
 export default ({ data }) => {
   const {
@@ -18,8 +19,9 @@ export default ({ data }) => {
     <Hero />
     <Projects projects={projects} title="featured projects" showLink />
     <Jobs showLink />
-    <Blogs blogs={blogs} title="blog" showLink />
+    <Education showLink />
     <Services />
+    <Blogs blogs={blogs} title="blog" showLink />
   </Layout>
 }
 
