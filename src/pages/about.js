@@ -22,7 +22,7 @@ const About = ({ data: { allStrapiAbout: { nodes } } }) => {
           <h4>Advanced Knowledge</h4>
           <div className="underline" />
           <div className="about-stack">
-            {stack.slice(0, 24).map((item) => {
+            {stack.slice(0, 25).map((item) => {
               return (
                 <span key={item.id} >{item.title}</span>
               )
@@ -32,7 +32,7 @@ const About = ({ data: { allStrapiAbout: { nodes } } }) => {
           <h4>Intermediate Knowledge</h4>
           <div className="underline" />
           <div className="about-stack">
-            {stack.slice(24, 34).map((item) => {
+            {stack.slice(25, 35).map((item) => {
               return (
                 <span key={item.id} >{item.title}</span>
               )
@@ -43,6 +43,8 @@ const About = ({ data: { allStrapiAbout: { nodes } } }) => {
     </section>
     <div id="experience">
       <Jobs />
+    </div>
+    <div id="education">
       <Education />
     </div>
   </Layout>

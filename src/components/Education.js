@@ -65,7 +65,7 @@ const Education = ({ showLink }) => {
 
       </article>
     </div>
-    {showLink && <Link to="/about" className="btn center-btn">
+    {showLink && <Link to="/about#education" className="btn center-btn">
       show all
     </Link>}
   </section>

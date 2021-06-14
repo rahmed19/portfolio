@@ -5,6 +5,7 @@ import {
   FaDribbbleSquare,
   FaBehanceSquare,
   FaTwitterSquare,
+  FaGithubSquare
 } from "react-icons/fa"
 
 const data = [
@@ -25,8 +26,8 @@ const data = [
   },
   {
     id: 4,
-    icon: <FaBehanceSquare className="social-icon"></FaBehanceSquare>,
-    url: "#",
+    icon: <FaGithubSquare className="social-icon"></FaGithubSquare>,
+    url: "https://github.com/rahmed19/",
   },
   {
     id: 5,
