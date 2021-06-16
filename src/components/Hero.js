@@ -24,8 +24,8 @@ const Hero = () => {
         <div>
           <div className="underline" />
           <h2>RAYAHMED.CA</h2>
-          <h4>ReactJs Frontend web development</h4>
-          <Link to="/contact" className="btn">Contact me</Link>
+          <h4>Frontend Software Development</h4>
+          <a href="https://drive.google.com/file/d/1VL-Z7gMfJsC2e7yD0wXL28YemLjvwZzR/view?usp=sharing" className="btn" target="new">Download Resume</a>
           <SocialLinks />
         </div>
       </article>

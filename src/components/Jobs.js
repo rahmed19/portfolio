@@ -75,7 +75,7 @@ const Jobs = ({ showLink }) => {
         {showLink ? null : <Job2 value={value} />}
         {showLink && <Link to="/about#experience" className="btn center-btn">
             show all
-    </Link>}
+        </Link>}
     </section>
 }
 

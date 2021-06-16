@@ -38,6 +38,9 @@ const About = ({ data: { allStrapiAbout: { nodes } } }) => {
               )
             })}
           </div>
+          <br />
+          <br />
+          <a href="https://drive.google.com/file/d/1VL-Z7gMfJsC2e7yD0wXL28YemLjvwZzR/view?usp=sharing" className="btn" target="new">Download Resume</a>
         </article>
       </div>
     </section>
