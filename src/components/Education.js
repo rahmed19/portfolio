@@ -6,7 +6,7 @@ import { Link } from "gatsby"
 
 const query = graphql`
   {
-    allStrapiEducations(sort: {fields: strapiId, order: DESC}) {
+    allStrapiEducations(sort: {fields: strapiId, order: ASC}) {
       nodes {
         category
         date
